@@ -1,4 +1,4 @@
-NAME = a.out
+NAME = ex01
 SRCS = main.cpp Span.cpp
 OBJS = $(SRCS:.cpp=.o)
 CXX = c++
