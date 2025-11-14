@@ -14,6 +14,7 @@ int main()
     sp.addNumber(11);
     std::cout << sp.shortestSpan() << std::endl;
     std::cout << sp.longestSpan() << std::endl;
+
     try
     {
         sp.addNumber(1);
@@ -26,12 +27,24 @@ int main()
     // long array tests
     Span long_sp = Span(10000);
     srand(time(NULL));
+    std::vector<int> vec;
     for (int i = 0; i < 10000; i++)
+        vec.push_back(rand());
+
+    long_sp.addNumbers(vec.begin(), vec.end());
+
+    try
     {
-        long_sp.addNumber(rand());
+        long_sp.addNumbers(vec.begin(), vec.begin() + 1);
     }
+    catch (std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
+
     std::cout << long_sp.shortestSpan() << std::endl;
     std::cout << long_sp.longestSpan() << std::endl;
+
     try
     {
         long_sp.addNumber(1);

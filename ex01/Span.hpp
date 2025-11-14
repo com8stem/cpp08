@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <exception>
+#include <stdexcept>
 #include <algorithm>
 
 class Span
@@ -20,6 +21,13 @@ public:
     void addNumber(const int element);
     int shortestSpan() const;
     int longestSpan() const;
+    template <typename T>
+    void addNumbers(T begin, T end)
+    {
+        if (this->array.size() + std::distance(begin, end) > this->N)
+            throw std::runtime_error("Span capacity exceeded");
+        this->array.insert(this->array.end(), begin, end);
+    };
 };
 
 #endif

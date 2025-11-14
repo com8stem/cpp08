@@ -29,7 +29,7 @@ Span::~Span()
 void Span::addNumber(const int element)
 {
     if (this->array.size() >= this->N)
-        throw std::runtime_error("Array is full!");
+        throw std::runtime_error("Span capacity exceeded");
     array.push_back(element);
 }
 
